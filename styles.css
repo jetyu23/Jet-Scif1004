@@ -1,0 +1,493 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --text-color: #333;
+    --background-color: #ecf0f1;
+    --dark-bg-color: #731ae5; /* Darker purple for highlighted items */
+    --light-bg-color: #f4f6f7;
+    --highlight-color: #8e00ff; /* New highlight color */
+}
+
+body {
+    font-family: 'Orbitron', sans-serif; /* Default font for the site */
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+}
+
+p {
+    font-family: 'Roboto', sans-serif; /* Specific font for paragraphs */
+}
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+.dna-helix {
+    width: 60px;
+    height: 100px;
+    position: relative;
+}
+
+.strand {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: var(--secondary-color);
+    left: 50%;
+    transform-origin: 50% 100%;
+    animation: rotate 2s linear infinite;
+}
+
+.strand:nth-child(2) {
+    animation-delay: -1s;
+}
+
+@keyframes rotate {
+    0% { transform: rotateY(0) translateX(20px); }
+    100% { transform: rotateY(360deg) translateX(20px); }
+}
+
+header {
+    background: #731ae5;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--light-bg-color);
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: var(--highlight-color);
+    color: #fff;
+}
+
+main {
+    margin-top: 70px;
+}
+
+section {
+    padding: 80px 20px;
+    background-color: var(--light-bg-color);
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#overview {
+    padding: 40px 40px;
+    background-color: var(--light-bg-color);
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#overview h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+#overview p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--primary-color);
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.hero-content {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--primary-color);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin: 10px 0;
+    color: #fff; /* Changed to white */
+}
+
+.hero-content h2 {
+    font-size: 1.5em;
+    color: #fff; /* Changed to white */
+}
+
+.hero-background {
+    position: absolute;
+    top: -50%; /* Adjust top to center the image vertically */
+    left: -34%; /* Adjust left to center the image horizontally */
+    width: 170%; /* Full width */
+    height: 190%; /* Full height */
+    z-index: -1;
+    background: url('images/caesar-header.jpg') no-repeat center center;
+    background-size: cover; /* Ensures the image covers the background */
+    filter: blur(5px) brightness(0.5);
+}
+
+/* Timeline */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px; /* Increased width for the timeline line */
+    background-color: var(--dark-bg-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.event-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 40px 0;
+    position: relative;
+}
+
+.event {
+    width: 40%;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.event-image-container {
+    width: 60%; /* Increased width for larger images */
+    max-width: 400px; /* Increased max-width for larger images */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.event-image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.event-container:nth-child(odd) .event {
+    order: 1;
+}
+
+.event-container:nth-child(odd) .event-image-container {
+    order: 2;
+}
+
+.event-container:nth-child(even) .event {
+    order: 2;
+}
+
+.event-container:nth-child(even) .event-image-container {
+    order: 1;
+}
+
+
+.event-container::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #8c00ff;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgb(255, 255, 255); /* White outline effect */
+}
+
+
+/* Science Grid */
+.science-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.science-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.science-item:hover {
+    transform: translateY(-5px);
+    background-color: #b700ff5a;
+}
+
+/* Ethics Carousel */
+.ethics-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 20px;
+}
+
+.ethics-item {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.ethics-item:hover {
+    background-color: #b700ff5a;
+}
+
+/* Impact Columns */
+.impact-columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* Ensure columns are on one line */
+    margin-bottom: 30px; /* Add space below the columns */
+}
+
+.impact-column {
+    flex-basis: calc(33.333% - 50px);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-bottom: 0; /* Remove bottom margin */
+}
+
+.impact-column:hover {
+    transform: translateY(-5px);
+    background-color: #eaddf7;
+
+}
+
+.video-section {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.video-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+video {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Resource Links */
+.resource-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.resource-link {
+    display: block;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: var(--text-color);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.resource-link:hover {
+    transform: translateY(-5px);
+    background-color: #eaddf7;
+}
+
+footer {
+    background-color: var(--dark-bg-color);
+    color: var(--light-bg-color);
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .event {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    .event::after {
+        left: 15px;
+    }
+    .event:nth-child(even) {
+        left: 0%;
+    }
+    .impact-column {
+        flex-basis: 100%;
+    }
+}
+
+#featured-image {
+    background-color: var(--light-bg-color);
+    padding: 40px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.image-container {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+section h2 {
+    font-size: 3em;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #141117; /* Updated color for emphasis */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+    border-bottom: 2px solid #731ae5; /* Bottom border for separation */
+    padding-bottom: 10px; /* Space below the text */
+}
+
+.science-item {
+    background-color: #fff;
+    padding: 30px; /* Increased padding */
+    border-radius: 12px; /* Increased border-radius */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker box shadow */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative; /* For positioning icons */
+    text-align: center; /* Center align text */
+}
+
+.science-item::before {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: #731ae5; /* Icon background color */
+    border-radius: 50%;
+    position: absolute;
+    top: -25px; /* Positioned above the card */
+    left: 50%;
+    transform: translateX(-50%);
+    background-size: cover; /* Cover the background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for the icon */
+}
+
+.science-item:hover, .ethics-item:hover {
+    transform: translateY(-10px); /* Lift effect */
+    background-color: #eaddf7 /* Slightly different background on hover */
+}
+
+.ethics-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-align: center;
+}
+
+.ethics-item:hover {
+    transform: translateY(-5px);
+    background-color: #b700ff5a;
+}
+
+.ethics-image-container {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 15px; /* Space between image and text */
+}
+
+.ethics-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
